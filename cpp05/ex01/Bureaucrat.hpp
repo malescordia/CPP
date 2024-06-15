@@ -5,18 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 14:19:11 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/15 18:49:25 by gude-cas         ###   ########.fr       */
+/*   Created: 2024/06/15 15:36:11 by gude-cas          #+#    #+#             */
+/*   Updated: 2024/06/15 18:49:09 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BUREACRAT_HPP
+#define BUREACRAT_HPP
+
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
 
     private:
-    	const std::string	name;
+    	std::string  		name;
     	int					grade;
     
     public:
@@ -30,6 +36,8 @@ class Bureaucrat
     	int					getGrade();
     	void				incrementGrade(int value);
     	void				decrementGrade(int value);
+        
+        bool                signForm(Form &form);
         
     	class GradeTooHighException: public std::exception
         {
@@ -50,3 +58,5 @@ class Bureaucrat
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj);
+
+#endif
