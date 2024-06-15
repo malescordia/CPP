@@ -1,49 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/11 14:19:11 by gude-cas          #+#    #+#             */
+/*   Updated: 2024/06/15 15:06:44 by gude-cas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <iostream>
-#include <exception>
 
 class Bureaucrat
 {
-    private:
-        Bureaucrat() throw(Bureaucrat::GradeTooHighException);
 
-        const std::string   name;
-        unsigned int        grade;
+    private:
+    	std::string	        name;
+    	int					grade;
     
     public:
-        class GradeTooHighException : public std::exception
-        {
-            private:
-                std::string message;
-            public:
-                GradeTooHighException(const std::string &message = "")  throw();
-                ~GradeTooHighException()                                throw();
-                const char *what() const                                throw();
-        };
-
-        class GradeTooLowException : public std::exception
-        {
-            private:
-                std::string message;
-            public:
-                GradeTooLowException(const std::string &message = "")   throw();
-                ~GradeTooLowException()                                 throw();
-                const char *what() const                                throw();
-        };
-
-        Bureaucrat(const std::string &name, unsigned int grade) throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException);
-        Bureaucrat(const Bureaucrat &obj);
-        ~Bureaucrat();
-
-        Bureaucrat &operator=(const Bureaucrat &obj);
+    	Bureaucrat();
+    	Bureaucrat(std::string name, int grade);
+    	Bureaucrat(Bureaucrat &obj);
+    	Bureaucrat &operator=(Bureaucrat &obj);
+    	~Bureaucrat();
+    
+    	std::string	        getName();
+    	int					getGrade();
+    	void				incrementGrade(int value);
+    	void				decrementGrade(int value);
         
-        Bureuacrat &operator++()    throw(Bureaucrat::GradeTooHighException);
-        Bureaucrat operator++(int)  throw(Bureaucrat::GradeTooHighException);
-        Bureaucrat &operator--()    throw(Bureaucrat::GradeTooLowException);
-        Bureaucrat operator--(int)  throw(Bureaucrat::GradeTooLowException);
-
-        const std::string   &getName() const;
-        unsigned int        getGrade() const;
+    	class GradeTooHighException: public std::exception
+        {
+    		public:
+    			const char * what() const throw()
+                {
+                    return ("The grade is too high!");
+                }
+    	};
+    	class GradeTooLowException: public std::exception
+        {
+    		public:
+    			const char * what() const throw()
+                {
+                    return ("The grade is too low!");
+                }
+    	};
 };
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);
+std::ostream &operator<<(std::ostream &out, Bureaucrat &obj);
