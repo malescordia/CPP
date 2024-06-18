@@ -6,19 +6,19 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 20:06:48 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/15 21:02:39 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:24:41 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form(target, 145, 37), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 37), target(target)
 {
     std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &obj) : Form(obj)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &obj) : AForm(obj)
 {
     std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
     target = obj.target;
@@ -35,7 +35,7 @@ void ShrubberyCreationForm::execute(Bureaucrat &obj)
         throw GradeTooLowException();
     }
     
-    std::ofstream out(target + "_shrubbery");
+    std::ofstream out((target + "_shrubbery").c_str());
     
     if (out.is_open())
     {

@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:09 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/15 18:45:43 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:43:24 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(std::string name) : name(name), signature(false), to_sign(100), to_execute(100)
+AForm::AForm(std::string name) : name(name), signature(false), to_sign(100), to_execute(100)
 {
     std::cout << "Form default constructor called" << std::endl;
 }
 
-Form::Form(std::string name, int sign, int execute) : name(name), signature(false), to_sign(sign), to_execute(execute)
+AForm::AForm(std::string name, int sign, int execute) : name(name), signature(false), to_sign(sign), to_execute(execute)
 {
     std::cout << "Form constructor called" << std::endl;
 }
 
-Form::Form(Form &obj) : name(obj.getName()), signature(obj.getSignature()), to_sign(obj.getSign()), to_execute(obj.getExecute())
+AForm::AForm(AForm &obj) : name(obj.getName()), signature(obj.getSignature()), to_sign(obj.getSign()), to_execute(obj.getExecute())
 {
     std::cout << "Form copy constructor called" << std::endl;
     this->signature = obj.signature;
 }
 
-Form &Form::operator=(Form &obj)
+AForm &AForm::operator=(AForm &obj)
 {
     this->signature = obj.signature;
     return(*this);
 }
 
-void Form::beSigned(Bureaucrat &obj)
+void AForm::beSigned(Bureaucrat &obj)
 {
     if (obj.getGrade() > to_sign)
         throw GradeTooLowException();
@@ -44,27 +44,27 @@ void Form::beSigned(Bureaucrat &obj)
     signature = true;
 }
 
-std::string Form::getName()
+std::string AForm::getName()
 {
     return name;
 }
 
-int         Form::getSign()
+int         AForm::getSign()
 {
     return to_sign;
 }
 
-int         Form::getExecute()
+int         AForm::getExecute()
 {
     return to_execute;
 }
 
-bool        Form::getSignature()
+bool        AForm::getSignature()
 {
     return signature;
 }
 
-std::ostream &operator<<(std::ostream &out, Form &obj)
+std::ostream &operator<<(std::ostream &out, AForm &obj)
 {
     out << "Form \"" << obj.getName() << "\" ";
     if (obj.getSignature())
@@ -74,7 +74,7 @@ std::ostream &operator<<(std::ostream &out, Form &obj)
     return out;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
     std::cout << "Form destructor called" << std::endl;
 }

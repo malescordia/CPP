@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:06 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/15 20:24:21 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:20:08 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "Bureaucrat.hpp"
 
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define R "\033[0m"
+
 class Bureaucrat;
 
-class Form
+class AForm
 {
      private:
     	std::string	        name;
@@ -26,12 +31,12 @@ class Form
         int                 to_execute;
     
     public:
-    	Form();
-    	Form(std::string name);
-        Form(std::string name, int sign, int execute);
-    	Form(Form &obj);
-    	Form &operator=(Form &obj);
-    	~Form();
+    	AForm();
+    	AForm(std::string name);
+        AForm(std::string name, int sign, int execute);
+    	AForm(AForm &obj);
+    	AForm &operator=(AForm &obj);
+    	~AForm();
     
         std::string getName();
         bool        getSignature();
@@ -46,7 +51,7 @@ class Form
     		public:
     			const char * what() const throw()
                 {
-                    return ("The grade is too high!");
+                    return (RED "the grade is too high!" R);
                 }
     	};
     	class GradeTooLowException: public std::exception
@@ -54,7 +59,7 @@ class Form
     		public:
     			const char * what() const throw()
                 {
-                    return ("The grade is too low!");
+                    return (RED "the grade is too low!" R);
                 }
     	};
         class FormIsAlreadySigned: public std::exception
@@ -62,7 +67,7 @@ class Form
     		public:
     			const char * what() const throw()
                 {
-                    return ("The form is already signed!");
+                    return (RED "the form is already signed!" R);
                 }
     	};
         class FormIsNotSigned: public std::exception
@@ -70,11 +75,11 @@ class Form
             public:
                 const char * what() const throw()
                 {
-                    return ("The form is not signed!");
+                    return (RED "the form is not signed!" R);
                 }
         };
 };
 
-std::ostream &operator<<(std::ostream &out, Form &obj);
+std::ostream &operator<<(std::ostream &out, AForm &obj);
 
 #endif

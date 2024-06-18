@@ -6,7 +6,7 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:11 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/15 21:10:21 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:11:18 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define R "\033[0m"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -39,8 +43,8 @@ class Bureaucrat
     	void				incrementGrade(int value);
     	void				decrementGrade(int value);
         
-        bool                signForm(Form &form);
-		void 			  	executeForm(Form &form);
+        bool                signForm(AForm &form);
+		void 			  	executeForm(AForm &form);
         
     	class GradeTooHighException: public std::exception
         {

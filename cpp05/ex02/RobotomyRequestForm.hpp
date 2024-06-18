@@ -6,16 +6,16 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 20:06:46 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/15 20:56:39 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:24:29 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class RobotomyRequestForm : public Form
+class RobotomyRequestForm : public AForm
 {
     private:
         std::string target;

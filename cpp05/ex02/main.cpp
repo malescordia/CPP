@@ -6,74 +6,59 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:03 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/15 21:06:41 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:06:07 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int main()
+int main(void)
 {
-	try
-	{
-		Bureaucrat	wrong("Wrong", 1666);
+	Bureaucrat bob("Bob", 100);
+	Bureaucrat marley("Marley", 50);
+	Bureaucrat jones("Jones", 1); 
 
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
-	try
-	{
-		Bureaucrat	right("Right", 3);
-
-		right.decrementGrade(4);
-		std::cout << "Bureaucrat " << right.getName() << " grade: "<< right.getGrade() << std::endl;
-		right.incrementGrade(4);
-		std::cout << "Bureaucrat " << right.getName() << " grade: "<< right.getGrade() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
-	Bureaucrat First("First", 100);
-	Bureaucrat Second("Second", 50);
-
-	RobotomyRequestForm form1("help");
-	PresidentialPardonForm form2("me");
-	ShrubberyCreationForm form3("please");
+	RobotomyRequestForm form1("form 1");
+	PresidentialPardonForm form2("form 2");
+	ShrubberyCreationForm form3("form 3");
+	
+	std::cout << std::endl;
 
 	try
 	{
-		First.signForm(form1);
-		Second.signForm(form1);
-		First.signForm(form2);
-		Second.signForm(form2);
-		First.signForm(form3);
-		Second.signForm(form3);
+		bob.signForm(form1);
+		marley.signForm(form1);
+		jones.signForm(form1);
+		bob.signForm(form2);
+		marley.signForm(form2);
+		jones.signForm(form2);
+		bob.signForm(form3);
+		marley.signForm(form3);
+		jones.signForm(form3);
 	}
-	catch(const std::exception& e)
+	catch(const std::exception & e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 
 	try
 	{
-		First.executeForm(form1);
-		First.executeForm(form2);
-		First.executeForm(form3);
-		Second.executeForm(form1);
-		Second.executeForm(form2);
-		Second.executeForm(form3);
+		bob.executeForm(form1);
+		bob.executeForm(form2);
+		bob.executeForm(form3);
+		marley.executeForm(form1);
+		marley.executeForm(form2);
+		marley.executeForm(form3);
+		jones.executeForm(form1);
+		jones.executeForm(form2);
+		jones.executeForm(form3);
 	}
-	catch(const std::exception& e)
+	catch(const std::exception & e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 }
