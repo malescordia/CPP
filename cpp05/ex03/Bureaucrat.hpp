@@ -6,7 +6,7 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:11 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/19 18:52:42 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:11:18 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 #define BUREACRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include <fstream>
+#include <stdlib.h>
+#include "AForm.hpp"
 
 #define RED "\033[31m"
 #define GREEN "\033[32m"
-#define YELLOW "\033[33m"
 #define R "\033[0m"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -42,14 +43,15 @@ class Bureaucrat
     	void				incrementGrade(int value);
     	void				decrementGrade(int value);
         
-        bool                signForm(Form &form);
+        bool                signForm(AForm &form);
+		void 			  	executeForm(AForm &form);
         
     	class GradeTooHighException: public std::exception
         {
     		public:
     			const char * what() const throw()
                 {
-                    return (RED "the grade is too high!" R);
+                    return ("The grade is too high!");
                 }
     	};
     	class GradeTooLowException: public std::exception
@@ -57,7 +59,7 @@ class Bureaucrat
     		public:
     			const char * what() const throw()
                 {
-                    return (RED "the grade is too low!" R);
+                    return ("The grade is too low!");
                 }
     	};
 };

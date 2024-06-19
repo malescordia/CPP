@@ -6,7 +6,7 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:11 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/18 18:32:35 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/19 18:44:35 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 #define RED "\033[31m"
 #define GREEN "\033[32m"
 #define R "\033[0m"
+
+class AForm;
 
 class Bureaucrat
 {

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:06 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/19 18:52:12 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/19 18:49:24 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "Bureaucrat.hpp"
 
@@ -22,7 +22,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
      private:
     	std::string	        name;
@@ -31,24 +31,25 @@ class Form
         int                 to_execute;
     
     public:
-    	Form();
-    	Form(std::string name);
-        Form(std::string name, int sign, int execute);
-    	Form(Form &obj);
-    	Form &operator=(Form &obj);
-    	~Form();
+    	AForm();
+    	AForm(std::string name);
+        AForm(std::string name, int sign, int execute);
+    	AForm(AForm &obj);
+    	AForm &operator=(AForm &obj);
+    	virtual ~AForm();
     
-        std::string getName();
-        bool        getSignature();
-        int         getSign();
-        int         getExecute();
+        std::string     getName();
+        bool            getSignature();
+        int             getSign();
+        int             getExecute();
         
-    	void        beSigned(Bureaucrat &obj);
+    	void            beSigned(Bureaucrat &obj);
+        virtual void    execute(Bureaucrat &obj) = 0;
         
     	class GradeTooHighException: public std::exception
         {
     		public:
-    			const char * what() const throw()
+    			virtual const char *what() const throw()
                 {
                     return (RED "the grade is too high!" R);
                 }
@@ -56,7 +57,7 @@ class Form
     	class GradeTooLowException: public std::exception
         {
     		public:
-    			const char * what() const throw()
+    			virtual const char *what() const throw()
                 {
                     return (RED "the grade is too low!" R);
                 }
@@ -64,13 +65,21 @@ class Form
         class FormIsAlreadySigned: public std::exception
         {
     		public:
-    			const char * what() const throw()
+    			virtual const char *what() const throw()
                 {
                     return (RED "the form is already signed!" R);
                 }
     	};
+        class FormIsNotSigned: public std::exception
+        {
+            public:
+                virtual const char *what() const throw()
+                {
+                    return (RED "the form is not signed!" R);
+                }
+        };
 };
 
-std::ostream &operator<<(std::ostream &out, Form &obj);
+std::ostream &operator<<(std::ostream &out, AForm &obj);
 
 #endif

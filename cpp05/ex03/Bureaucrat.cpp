@@ -6,12 +6,12 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:14 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/19 18:58:32 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:19:02 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -64,25 +64,43 @@ int	Bureaucrat::getGrade()
 	return grade;
 }
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)
-{
-	out << obj.getName() << ", bureaucrat grade " << obj.getGrade();
-	return out;
-}
-
-bool Bureaucrat::signForm(Form &form)
+bool Bureaucrat::signForm(AForm &form)
 {
     try
     {
         form.beSigned(*this);
         std::cout << GREEN << getName() << " signed " << form.getName() << R << std::endl;
+		std::cout << std::endl;
         return true;
     }
     catch(std::exception & e)
     {
-        std::cerr << RED << getName() << " couldn't sign " << form.getName() << " because " << e.what() << R << std::endl;
+        std::cerr << getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << std::endl;
         return false;
     }
+}
+
+void Bureaucrat::executeForm(AForm &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << getName() << " executed " << form.getName() << std::endl;
+		std::cout << std::endl;
+	}
+	catch(std::exception & e)
+	{
+		std::cerr << getName() << " did not execute " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << std::endl;
+	}
+}
+
+std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)
+{
+	out << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+	std::cout << std::endl;
+	return out;
 }
 
 Bureaucrat::~Bureaucrat()

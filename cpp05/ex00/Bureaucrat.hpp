@@ -6,11 +6,16 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:19:11 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/15 18:49:25 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/19 18:53:14 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define R "\033[0m"
 
 class Bureaucrat
 {
@@ -34,17 +39,17 @@ class Bureaucrat
     	class GradeTooHighException: public std::exception
         {
     		public:
-    			const char * what() const throw()
+    			const char *what() const throw()
                 {
-                    return ("The grade is too high!");
+                    return (RED "the grade is too high!" R);
                 }
     	};
     	class GradeTooLowException: public std::exception
         {
     		public:
-    			const char * what() const throw()
+    			const char *what() const throw()
                 {
-                    return ("The grade is too low!");
+                    return (RED "the grade is too low!" R);
                 }
     	};
 };
