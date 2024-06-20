@@ -6,7 +6,7 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:19:34 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/19 18:55:08 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:20:40 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void)
         std::cout << "Bureaucrat " << brotest.getName() << " grade: "<< brotest.getGrade() << std::endl;
 		std::cout << std::endl;
     }
-	catch (std::exception & e)
+	catch (std::exception &e)
     {
 		std::cerr << e.what() << std::endl;
 		std::cout << std::endl;
@@ -38,7 +38,7 @@ int main(void)
 		std::cout << "Bureaucrat " << bro.getName() << " grade: "<< bro.getGrade() << std::endl;
 		std::cout << std::endl;
 	}
-	catch (std::exception & e)
+	catch (std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 		std::cout << std::endl;

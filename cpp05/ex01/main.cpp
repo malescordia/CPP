@@ -6,7 +6,7 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:03 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/19 18:57:09 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:20:52 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void)
 		Bureaucrat	brotest("Brotest", 666);
 		std::cout << std::endl;
 	}
-	catch(std::exception & e)
+	catch(std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 		std::cout << std::endl;
@@ -46,7 +46,7 @@ int main(void)
 		bro.signForm(form2);
 		std::cout << std::endl;
 	}
-	catch(std::exception & e)
+	catch(std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 		std::cout << std::endl;

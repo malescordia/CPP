@@ -6,7 +6,7 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:14 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/19 18:58:32 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/20 18:11:39 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	Bureaucrat::decrementGrade(int value)
 	grade += value;
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName()	
 {
 	return name;
 }

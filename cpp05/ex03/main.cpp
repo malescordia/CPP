@@ -6,7 +6,7 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:03 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/18 18:48:30 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:23:21 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void)
 {
 	Intern	intern;
 	AForm	*forms[4];
-	std::string formTypes[4] = {"shrubbery creation", "robotomy request", "dfggrf", "presidential pardon"};
+	std::string formTypes[4] = {"shrubbery creation", "robotomy request", "asdf", "presidential pardon"};
 
 	Bureaucrat bro("Bro", 1);
 	
@@ -28,12 +28,12 @@ int main(void)
 	{
 		try
 		{
-			forms[i] = intern.makeForm(formTypes[i], "TARGET");
+			forms[i] = intern.makeForm(formTypes[i], YELLOW "TARGET" R);
 			bro.signForm(*forms[i]);
 			bro.executeForm(*forms[i]);
 			delete forms[i];
 		}
-		catch(std::exception & e)
+		catch(std::exception &e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
@@ -42,12 +42,12 @@ int main(void)
 	{
 		try
 		{
-			forms[i] = intern.makeForm(formTypes[i], "TARGET");
+			forms[i] = intern.makeForm(formTypes[i], YELLOW "TARGET" R);
 			bro.signForm(*forms[i]);
 			bro.executeForm(*forms[i]);
 			delete forms[i];
 		}
-		catch(std::exception & e)
+		catch(std::exception &e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
@@ -56,12 +56,12 @@ int main(void)
 	{
 		try
 		{
-			forms[i] = intern.makeForm(formTypes[i], "TARGET");
+			forms[i] = intern.makeForm(formTypes[i], YELLOW "TARGET" R);
 			bro.signForm(*forms[i]);
 			bro.executeForm(*forms[i]);
 			delete forms[i];
 		}
-		catch(std::exception & e)
+		catch(std::exception &e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
@@ -70,12 +70,12 @@ int main(void)
 	{
 		try
 		{
-			forms[i] = intern.makeForm(formTypes[i], "TARGET");
+			forms[i] = intern.makeForm(formTypes[i], YELLOW "TARGET" R);
 			bro.signForm(*forms[i]);
 			bro.executeForm(*forms[i]);
 			delete forms[i];
 		}
-		catch(std::exception & e)
+		catch(std::exception &e)
 		{
 			std::cerr << e.what() << std::endl;
 		}

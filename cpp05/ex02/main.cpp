@@ -6,7 +6,7 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:36:03 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/18 18:06:07 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:21:22 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main(void)
 		marley.signForm(form3);
 		jones.signForm(form3);
 	}
-	catch(const std::exception & e)
+	catch(const std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
@@ -57,7 +57,7 @@ int main(void)
 		jones.executeForm(form2);
 		jones.executeForm(form3);
 	}
-	catch(const std::exception & e)
+	catch(const std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
