@@ -6,7 +6,7 @@
 /*   By: gude-cas <gude-cas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:19:11 by gude-cas          #+#    #+#             */
-/*   Updated: 2024/06/19 18:53:14 by gude-cas         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:26:36 by gude-cas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Bureaucrat
 {
 
     private:
-    	const std::string	name;
+    	std::string			name;
     	int					grade;
     
     public:
